@@ -22,6 +22,8 @@ namespace ImportarJson
                 switch (opcion)
                 {
                     case "1":
+                        Console.Clear();
+                        Console.WriteLine($"\n\t LISTADO MONEDAS (monedas.json)\n");
                         // Ruta del fichero .json
                         string rutaJson = "..\\..\\..\\monedas.json";
 
@@ -36,8 +38,9 @@ namespace ImportarJson
                             string name = moneda.nombre;
                             string code = moneda.codigo;
                             float value = moneda.valorEnDolares;
-                            Console.WriteLine($" Moneda: {name} | Codigo: {code} | Valor en USD: {value}.");
+                            Console.WriteLine($"\t Moneda: {name} | Codigo: {code} | Valor en USD: {value}.");
                         }
+                        Thread.Sleep(2000);
                             break;
                     case "2":
                         // Pedimos valores
