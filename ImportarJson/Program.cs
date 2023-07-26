@@ -6,24 +6,20 @@ namespace ImportarJson
     {
         static void Main(string[] args)
         {
-            string json = @"{
-              'Name': 'Bad Boys',
-              'ReleaseDate': '1995-4-7T00:00:00',
-              'Genres': [
-                'Action',
-                'Comedy'
-              ]
-            }";
+            Console.WriteLine("");
 
 
-            // Deserializa y guarda el objeto de tipo Movie en la variable m
-            Movie m = JsonConvert.DeserializeObject<Movie>(json);
+            string rutaJson = "..\\..\\..\\monedas.json";
+            string json = File.ReadAllText(rutaJson);
+            List<Monedas> listaMonedas = JsonConvert.DeserializeObject<List<Monedas>>(json);
 
-            // Se extrae el nombre de la pelicula y se guarda en la variable name
-            string name = m.Name;
-
-            Console.WriteLine(name);
-            // Bad Boys
+            foreach (Monedas moneda in listaMonedas) 
+            {
+                string name = moneda.nombre;
+                string code = moneda.codigo;
+                float value = moneda.valorEnDolares;
+                Console.WriteLine($" Moneda: {name} + Codigo: {code} + Valor: {value}.");
+            }
         }
     }
 }
